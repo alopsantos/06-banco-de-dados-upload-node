@@ -28,7 +28,7 @@ class CreateTransactionService {
       throw new AppError('Yout do not Have enough balance');
     }
 
-    const transactionCategory = await categoryRepository.findOne({
+    let transactionCategory = await categoryRepository.findOne({
       where: { title: category },
     });
     if (!transactionCategory) {
